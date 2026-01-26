@@ -122,3 +122,18 @@ This separation allows the system to evolve and scale while keeping responsibili
 
 ###### Architectural Decision
 This architecture was chosen to start with a simple and maintainable monolith, while allowing future evolution into a microservices-based architecture if required.
+
+#### Known limitations
+	The locations are limited to fifty
+	Customer and suppliers information not managed
+	Simple authentication
+	User roles and  permissions not implemented
+	Only one material can by stored per location
+
+#### Future improvements
+	Microservices structure
+	Support for more locations
+	Implement special permissions for each user
+	Reporting features
+	Order managment with suppliers and customers information
+
