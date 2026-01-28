@@ -1,9 +1,9 @@
 from datetime import datetime
 class Transfer:
-    def __init__(self, user, trf_type, location, destination, quantity):
+    def __init__(self, user, trf_type, origin_location, destination_location, quantity):
         self.user = user
         self.trf_type =  trf_type
-        self.location = location
-        self.destination = destination
+        self.origin_location = origin_location
+        self.destination_location = destination_location
         self.quantity = quantity
         timestamp = datetime.now()

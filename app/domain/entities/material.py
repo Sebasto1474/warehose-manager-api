@@ -18,3 +18,4 @@ class Material:
         if value > self.quantity:
             raise ValueError("Value cannot be greater than current stock.")
         self.quantity -= value
+
