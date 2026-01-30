@@ -6,13 +6,11 @@ class TransferServices:
 
     def transfer_in(self, user, destination_location, material_id, quantity):
         trf_type = "In"
-        if quantity <= 0:
-            raise ValueError("Quantity must be positive.")
-        if not destination_location.available():
-            raise ValueError("Location must be available")
         if not self.material_repo.get_by_id(material_id):
-            new_material = self.material_repo.create(material_id)
-        stock_in = self.stock_repo.get_stock(destination_location, material_id)
+            self.material_repo.create(material_id)
+        stock_in = self.stock_repo.get_stock_by_location(destination_location)
+        if stock_in and stock_in.material_id != material_id:
+            raise ValueError("Destination location is occupied by another material.")
         if not stock_in:
             stock_in = self.stock_repo.create_stock(destination_location, material_id)
         stock_in.increase_stock(quantity)
