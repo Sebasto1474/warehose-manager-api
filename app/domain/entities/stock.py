@@ -1,8 +1,8 @@
 class Stock:
-    def __init__(self, location, material_id, quantity):
+    def __init__(self, location, material_id):
         self.location = location
         self.material_id = material_id
-        self.quantity = quantity
+        self.quantity = 0
 
     def increase_stock(self, value):
         if value <= 0:
