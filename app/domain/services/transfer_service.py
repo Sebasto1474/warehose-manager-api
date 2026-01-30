@@ -21,12 +21,6 @@ class TransferServices:
 
     def transfer_out(self, user, origin_location, material_id, quantity):
         trf_type = "Out"
-        if quantity <= 0:
-            raise ValueError("Quantity must be positive.")
-        if origin_location.available():
-            raise ValueError("Location must be occupied.")
-        if not self.material_repo.get_by_id(material_id):
-            raise ValueError("The material ID does not exist.")
         stock_out = self.stock_repo.get_stock(origin_location, material_id)
         if not stock_out:
             raise ValueError("Stock does not exist.")
